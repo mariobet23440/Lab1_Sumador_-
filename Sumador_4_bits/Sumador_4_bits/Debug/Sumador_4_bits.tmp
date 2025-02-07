@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\Debug\Sumador_4_bits.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Sumador_4_bits.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Sumador_4_bits.map</FILE>
+  <FILE>Sumador_4_bits.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <SETUP><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>20</LINE></SETUP>
+  <MAINLOOP><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>41</LINE></MAINLOOP>
+  <CONTADOR1><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>63</LINE></CONTADOR1>
+  <CONTADOR2><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>88</LINE></CONTADOR2>
+  <DELAY_SETUP><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>122</LINE></DELAY_SETUP>
+  <SUBRUTINA_CONTEO1><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>127</LINE></SUBRUTINA_CONTEO1>
+ </LABELS>
+</ASSEMBLER_INFO>
