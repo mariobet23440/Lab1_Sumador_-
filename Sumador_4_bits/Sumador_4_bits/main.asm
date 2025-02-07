@@ -48,10 +48,11 @@ MAINLOOP:
 	// debemos desplazar los bits de R20 4 bits a la izquierda
 
 	// Afortunadamente ya existe una función precisamente para eso
-	SWAP	R20 // Con esto intercambiamos los nibbles de R20
+	MOV		R21, R20
+	SWAP	R21 // Con esto intercambiamos los nibbles de R20
 
 	// Ahora unimos las dos cosas
-	OR		R16, R20
+	OR		R16, R21
 
 	// Finalmente las sacamos en PORTD
 	OUT		PORTD, R16

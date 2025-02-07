@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm Fri Feb 07 06:41:08 2025
+AVRASM ver. 2.2.8  C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm Fri Feb 07 06:49:32 2025
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
 C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm(10): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc'
@@ -1071,50 +1071,51 @@ C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits
                                  
                                  MAINLOOP:
                                  	// Ejecutar incremento y decremento de contadores
-00000d 940e 0015                 	CALL	CONTADOR1
-00000f 940e 0022                 	CALL	CONTADOR2
+00000d 940e 0016                 	CALL	CONTADOR1
+00000f 940e 0023                 	CALL	CONTADOR2
                                  
                                  	// Una vez que se haya regresado, debemos unir los bits de R16 y R20
                                  	// Para colocar los bits de R16 como los últimos bits de PORTD y los bits de R20 como los primeros
                                  	// debemos desplazar los bits de R20 4 bits a la izquierda
                                  
                                  	// Afortunadamente ya existe una función precisamente para eso
-000011 9542                      	SWAP	R20 // Con esto intercambiamos los nibbles de R20
+000011 2f54                      	MOV		R21, R20
+000012 9552                      	SWAP	R21 // Con esto intercambiamos los nibbles de R20
                                  
                                  	// Ahora unimos las dos cosas
-000012 2b04                      	OR		R16, R20
+000013 2b05                      	OR		R16, R21
                                  
                                  	// Finalmente las sacamos en PORTD
-000013 b90b                      	OUT		PORTD, R16
+000014 b90b                      	OUT		PORTD, R16
                                  
                                  
                                  	// Repetir todo
-000014 cff8                      	RJMP MAINLOOP
+000015 cff7                      	RJMP MAINLOOP
                                  
                                  CONTADOR1:
                                  	// Guardamos el valor de PORTB en R17 (Aquí van las dos entradas)
-000015 b115                      	IN		R17, PORTB
+000016 b115                      	IN		R17, PORTB
                                  
                                  	// Cambio de flujo - Decremento
-000016 fd10                      	SBRC	R17, 0
-000017 940e 002f                 	CALL	DELAY_SETUP
-000019 fd10                      	SBRC	R17, 0 
-00001a 950a                      	DEC		R16
+000017 fd10                      	SBRC	R17, 0
+000018 940e 0030                 	CALL	DELAY_SETUP
+00001a fd10                      	SBRC	R17, 0 
+00001b 950a                      	DEC		R16
                                  
                                  	// Cambio de flujo - Incremento
-00001b fd11                      	SBRC	R17, 1
-00001c 940e 002f                 	CALL	DELAY_SETUP
-00001e fd11                      	SBRC	R17, 1
-00001f 9503                      	INC		R16
+00001c fd11                      	SBRC	R17, 1
+00001d 940e 0030                 	CALL	DELAY_SETUP
+00001f fd11                      	SBRC	R17, 1
+000020 9503                      	INC		R16
                                  
                                  	// Truncar resultado a sólo cuatro bits
-000020 700f                      	ANDI	R16, 0x0F
+000021 700f                      	ANDI	R16, 0x0F
                                  
                                  	// Mostrar el resultado en PORTD
                                  	// OUT		PORTD, R16
                                  
                                  	// Regresar a MAINLOOP
-000021 9508                      	RET
+000022 9508                      	RET
                                  
                                  CONTADOR2:
                                  	// Para este contador usaremos los bits 2 y 3 de PORTB
@@ -1122,22 +1123,22 @@ C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits
                                  	// El bit 3 se usará para incrementar el valor del contador
                                  
                                  	// Guardamos el valor de PORTB en R17 (Aquí van las dos entradas)
-000022 b115                      	IN		R17, PORTB
+000023 b115                      	IN		R17, PORTB
                                  
                                  	// Cambio de flujo - Decremento
-000023 fd12                      	SBRC	R17, 2
-000024 940e 002f                 	CALL	DELAY_SETUP
-000026 fd12                      	SBRC	R17, 2 
-000027 954a                      	DEC		R20
+000024 fd12                      	SBRC	R17, 2
+000025 940e 0030                 	CALL	DELAY_SETUP
+000027 fd12                      	SBRC	R17, 2 
+000028 954a                      	DEC		R20
                                  
                                  	// Cambio de flujo - Incremento
-000028 fd13                      	SBRC	R17, 3
-000029 940e 002f                 	CALL	DELAY_SETUP
-00002b fd13                      	SBRC	R17, 3
-00002c 9543                      	INC		R20
+000029 fd13                      	SBRC	R17, 3
+00002a 940e 0030                 	CALL	DELAY_SETUP
+00002c fd13                      	SBRC	R17, 3
+00002d 9543                      	INC		R20
                                  
                                  	// Truncar resultado a sólo cuatro bits
-00002d 704f                      	ANDI	R20, 0x0F
+00002e 704f                      	ANDI	R20, 0x0F
                                  
                                  	// Desplazar los 4 bits hacia la izquierda
                                  
@@ -1147,19 +1148,19 @@ C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits
                                  	// Podemos ver que el registro R20
                                  
                                  	// Regresar a MAINLOOP
-00002e 9508                      	RET
+00002f 9508                      	RET
                                  
                                  // Establecer registro de contador
                                  DELAY_SETUP:
-00002f e031                      	LDI		R19, 0x01			// Cambiar a 0xFF
-000030 940e 0033                 	CALL	SUBRUTINA_CONTEO1	// Entrar a una subrutina de conteo
-000032 9508                      	RET
+000030 e031                      	LDI		R19, 0x01			// Cambiar a 0xFF
+000031 940e 0034                 	CALL	SUBRUTINA_CONTEO1	// Entrar a una subrutina de conteo
+000033 9508                      	RET
                                  
                                  SUBRUTINA_CONTEO1:
                                  	// Contar hacia abajo desde 255 hasta 0 y después regresar a conteo
-000033 953a                      	DEC		R19
-000034 3030                      	CPI		R19, 0X00
-000035 f7e9                      	BRNE	SUBRUTINA_CONTEO1
+000034 953a                      	DEC		R19
+000035 3030                      	CPI		R19, 0X00
+000036 f7e9                      	BRNE	SUBRUTINA_CONTEO1
 
 
 RESOURCE USE INFORMATION
@@ -1179,10 +1180,10 @@ counted separately from r26..r31 here.
 "ATmega328P" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  17 r17:  10 r18:   0 r19:   3 r20:   6 
-r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r13:   0 r14:   0 r15:   0 r16:  17 r17:  10 r18:   0 r19:   3 r20:   5 
+r21:   3 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 4 out of 35 (11.4%)
+Registers used: 5 out of 35 (14.3%)
 
 "ATmega328P" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
@@ -1196,7 +1197,7 @@ clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0
 cpi   :   1 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   2 jmp   :   0 
 ld    :   0 ldd   :   0 ldi   :   8 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
+lsr   :   0 mov   :   1 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   1 ori   :   0 out   :   7 pop   :   0 
 push  :   0 rcall :   0 ret   :   4 reti  :   0 rjmp  :   1 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
@@ -1204,12 +1205,12 @@ sbiw  :   0 sbr   :   0 sbrc  :   8 sbrs  :   0 sec   :   0 seh   :   0
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   1 tst   :   0 wdr   :   0 
-Instructions used: 14 out of 113 (12.4%)
+Instructions used: 15 out of 113 (13.3%)
 
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00006e    110      0    110   32768   0.3%
+[.cseg] 0x000000 0x000070    112      0    112   32768   0.3%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

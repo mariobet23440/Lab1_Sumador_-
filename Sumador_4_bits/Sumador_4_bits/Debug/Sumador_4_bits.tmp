@@ -25,9 +25,9 @@
  <LABELS>
   <SETUP><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>20</LINE></SETUP>
   <MAINLOOP><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>41</LINE></MAINLOOP>
-  <CONTADOR1><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>63</LINE></CONTADOR1>
-  <CONTADOR2><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>88</LINE></CONTADOR2>
-  <DELAY_SETUP><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>122</LINE></DELAY_SETUP>
-  <SUBRUTINA_CONTEO1><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>127</LINE></SUBRUTINA_CONTEO1>
+  <CONTADOR1><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>64</LINE></CONTADOR1>
+  <CONTADOR2><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>89</LINE></CONTADOR2>
+  <DELAY_SETUP><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>123</LINE></DELAY_SETUP>
+  <SUBRUTINA_CONTEO1><FILE>C:\Programacion-de-Microcontroladores\Sumador_4_bits\Lab1_Sumador\Sumador_4_bits\Sumador_4_bits\main.asm</FILE><LINE>128</LINE></SUBRUTINA_CONTEO1>
  </LABELS>
 </ASSEMBLER_INFO>
